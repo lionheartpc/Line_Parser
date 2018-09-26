@@ -15,10 +15,12 @@ namespace LineParserClass.Tests
         public void LimitCharactersTest()
         {
             //Arrange
+
             var testObject = new LineParser();
-            string expectedResult = "Word Word";
-            string testData = "Word Word";
+            string expectedResult = " ";
+            string testData = "";
             string actualResult;
+
             //Act
 
             actualResult = testObject.LimitCharacters(testData, 4);

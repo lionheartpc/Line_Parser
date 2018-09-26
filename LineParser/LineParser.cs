@@ -51,7 +51,7 @@ namespace LineParserClass
 
             while (queue.Count > 0 )
             {
-                var word = queue.Dequeue();
+                var word = queue.Dequeue().Trim();
 
 
                 if (word.Length >= rowLength)
@@ -73,7 +73,7 @@ namespace LineParserClass
                     }
                 }
 
-                if (queue.Count == 0)
+                if (queue.Count == 0 && word.Length < rowLength)
                 {
                     result.Append(line);
                 }

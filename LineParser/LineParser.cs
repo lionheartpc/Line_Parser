@@ -80,7 +80,7 @@ namespace LineParserClass
 
 
             }
-            return result.ToString();
+            return result.ToString().Trim();
         }
 
         static void Main(string[] args)

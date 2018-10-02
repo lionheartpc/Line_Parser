@@ -12,12 +12,12 @@ namespace LineParserClass.Tests
     public class LineParserTests
     {
         [TestMethod()]
-        public void LimitCharactersTest()
+        public void LimitCharactersTest_givenEmptyContent_expectEmptyString()
         {
             //Arrange
 
             var testObject = new LineParser();
-            string expectedResult = " ";
+            string expectedResult = "";
             string testData = "";
             string actualResult;
 
@@ -30,5 +30,47 @@ namespace LineParserClass.Tests
             Assert.AreEqual(expectedResult, actualResult);
 
         }
+
+        [TestMethod()]
+        public void LimitCharactersTest_givenWord_expectWordString()
+        {
+            //Arrange
+
+            var testObject = new LineParser();
+            string expectedResult = "Word";
+            string testData = "Word";
+            string actualResult;
+
+            //Act
+
+            actualResult = testObject.LimitCharacters(testData, 6);
+
+            //Assert
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+
+        [TestMethod()]
+        public void LimitCharactersTest_givenWords_expectWordsFormatted()
+        {
+            //Arrange
+
+            var testObject = new LineParser();
+            string expectedResult = "Word Word\r\nTesting\r\nWord";
+            string testData = "Word Word Testing Word";
+            string actualResult;
+
+            //Act
+
+            actualResult = testObject.LimitCharacters(testData, 10);
+
+            //Assert
+
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+
+ 
     }
 }
